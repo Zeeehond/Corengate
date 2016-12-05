@@ -41,24 +41,41 @@ class PowerSpeed {
 
   void update() {
     move();
+<<<<<<< HEAD
     // als powerup scherm verlaat respawn.
     if (PowerSpeedY > height) {
       respawn();
     }
     if (dist(theChr.x, theChr.y, PowerSpeedX, PowerSpeedY) < radius + theChr.radius) {
       // Collision met player respawn.
+=======
+
+    if (PowerSpeedY > height) {
+      respawn();
+    }
+    if (dist(theChr.x, theChr.y, PowerSpeedX, PowerSpeedY) < radius/2 + theChr.radius) {
+      // Collision
+>>>>>>> refs/remotes/origin/master
       theNmy.enemySpeed += 1;
       speed += 1;
       respawn();
     }
   }
 
+<<<<<<< HEAD
   // maakt de powerup aan.
+=======
+
+>>>>>>> refs/remotes/origin/master
   void draw() {
     fill(clrPowerSpeed);
     ellipse(PowerSpeedX, PowerSpeedY, radius, radius);
   }
+<<<<<<< HEAD
   // powerup speed.
+=======
+
+>>>>>>> refs/remotes/origin/master
   void move() {
     // Change the x location by speed
     PowerSpeedY = PowerSpeedY + PowerSpeed;

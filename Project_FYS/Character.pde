@@ -6,7 +6,7 @@ class Char {
   int radius; //diameter
   int clr; // kleur
   int lane; // welke lane is de character
-  
+
   void init () {
     //void init  initialiseert de variabelen
 
@@ -22,7 +22,7 @@ class Char {
 
 
   void keyPressed() {
-
+    //Controlles van de Character
     if (key== CODED) {
       if (keyCode == RIGHT) {
         x = x+150;
@@ -37,22 +37,23 @@ class Char {
     }
   }
 
-
-  void draw () {
- 
+  void update() {
+    //De Lanes
     if (lane < 0) {
       lane = 0;
       x = 362;
     }
-    
+
     if (lane >2) {
-     lane = 2;
-     x = 662;
+      lane = 2;
+      x = 662;
     }
-  
- // De Charachter      
+  }
+
+  void draw () {
+    // De Charachter      
     fill (clr);
     noStroke();
-    ellipse(x, y, radius*2, radius*2); 
+    ellipse(x, y, radius*2, radius*2);
   }
 }

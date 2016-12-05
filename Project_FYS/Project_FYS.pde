@@ -1,15 +1,4 @@
-// TODO LIST
-// start menu with start exit and highscore board
-// reset whole game when you get hit
-// power-up suitcase, you can then shoot the suitcase 
-// you can only shoot 1 time and destroy a enemy if you pick up a power-up (suitcase) you can stack the suitcase 3x 
-// highscore board
-// changing background after a certain time.
-// power up rollband makes you faster.
-// power up makes you invinicble for a moment.
-// random spawn of power-ups
-
-//
+// Declaring the variables
 float y =1;
 float speed = 1;
 PImage d;
@@ -52,9 +41,6 @@ void setup() {
   }
 }
 
-
-
-
 void keyPressed() {
   theChr.keyPressed();
 
@@ -81,6 +67,8 @@ void updateMe() {
   //theNmy.draw();
   //powerUp.draw();
   powerSpeed.update();
+  scorecount++; 
+  score = scorecount/10;
 }
 
 void drawMe() {
@@ -92,8 +80,7 @@ void drawMe() {
   powerSpeed.draw();
   fill(0, 0, 255);
   textSize(20);
-  scorecount++; 
-  score = scorecount/10;
+  
 
 
   // Draw shots and remove any that have gone off screen.
@@ -101,28 +88,25 @@ void drawMe() {
 
   // If player died, do this
   if (alive == false) {
-    
+
     background(0);  
     theScore.setup();
     theScore.draw();
     //theScore.keyPressed();
     theScore.addNewScore(score);
     noLoop();
-    }
+  }
 }
-
-
-
-
 
 // Tracks all shots.
 ArrayList<Shot> shots = new ArrayList();
 
 void reset() {
-  score = 0;
   alive = true;
   theNmy.enemySpeed = 1;
   speed = 1; 
+  scorecount = 0;
+  score = 0;
   theChr.init(); 
   theNmy.init();
   powerUp.init();
@@ -130,7 +114,6 @@ void reset() {
   powerUp.draw();
   powerSpeed.draw();
 }
-
 
 //------------------------------------- DO NOT CROSS THIS LINE --------------------------------------------
 

@@ -20,6 +20,7 @@ boolean alive = true;
 int m = millis() /100;
 int score = m /10;
 
+
 Lanes theLns = new Lanes ();
 Char theChr = new Char();
 Enemy theNmy = new Enemy();
@@ -43,6 +44,7 @@ void setup() {
   if (key == CODED) {
     if (keyCode == ESC){
       //Exit
+      
     }
   }
  }
@@ -78,7 +80,7 @@ void updateMe() {
   //theLns.updt();
   //theChr.draw();
   //theNmy.draw();
-  //powerUp.draw();
+  powerUp.update();
   powerSpeed.update();
 }
 

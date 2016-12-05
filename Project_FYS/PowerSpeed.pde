@@ -47,11 +47,11 @@ class PowerSpeed {
     if (PowerSpeedY > height) {
       respawn();
     }
-    if (dist(theChr.x, theChr.y, PowerSpeedX, PowerSpeedY) < radius/2 + theChr.radius) {
+    if (dist(theChr.x, theChr.y, PowerSpeedX, PowerSpeedY) < radius + theChr.radius) {
       // Collision
+      scorecount += 500;
       theNmy.enemySpeed += 1;
       theNmy2.enemySpeed2 += 1;
-      scorecount += 500;
       speed += 1;
       respawn();
     }

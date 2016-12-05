@@ -100,11 +100,11 @@ void drawMe() {
     background(0);  
     theScore.setup();
     theScore.draw();
-    theScore.keyPressed();
+    theScore.update();
     theScore.addNewScore(score);
     noLoop();
   }
-
+}
   // Tracks all shots.
   ArrayList<Shot> shots = new ArrayList();
 

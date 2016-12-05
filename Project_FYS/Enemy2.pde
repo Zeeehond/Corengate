@@ -45,7 +45,7 @@ class Enemy2 {
       theChr.x = 1100;
       theChr.y = 800;
     }
-    // Collision
+    // Collision enemy2 with player
     if (dist(theChr.x, theChr.y, enemy2X, enemy2Y) < radius) {
       alive=false;
       // reset();
@@ -53,13 +53,9 @@ class Enemy2 {
 
     // geeft snelheid aan de enemy
     if ( score %100 == 0) {
-      enemySpeed2 += 0.21;
+      enemySpeed2 += 0.22;
     }
 
-    //(UNDER CONSTRUCTION)
-    if (m% 10 == 0) {
-      score ++;
-    }
   }
 
   void move() {

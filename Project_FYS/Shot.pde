@@ -4,6 +4,7 @@ class Shot {
   float px, py, vy;
   int radius;
   int diameter;
+  
   Shot(float ipx, float ipy, float ivy) {
     px = ipx;
     ipx = theChr.x;
@@ -19,4 +20,4 @@ class Shot {
     py-=vy;
     return(py > height+10);
   }
-}
+} 

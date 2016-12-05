@@ -53,13 +53,9 @@ class Enemy {
 
     // geeft snelheid aan de enemy
     if ( score %100 == 0) {
-      enemySpeed += 0.21;
+      enemySpeed += 0.22;
     }
 
-    //(UNDER CONSTRUCTION)
-    if (m% 10 == 0) {
-      score ++;
-    }
   }
 
   void move() {

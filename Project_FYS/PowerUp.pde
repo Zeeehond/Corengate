@@ -24,13 +24,26 @@ class PowerUp {
     PowerUpY = -100;
   }
 
-  void move() {
-    // Change the x location by speed
-    PowerUpY ++;
-    PowerUpY = PowerUpY + PowerUpSpeed;
+  void update() {
+    move();
+    // makes the player able to shoot once when the player picks up the power-up
+    if (dist(theChr.x, theChr.y, PowerUpX, PowerUpY) <radius/2 + theChr.radius) {
+      CanShoot = true;
+      respawn();
+    } 
+    if (PowerUpY > height) {
+      respawn();
+    }
+  }
+
+  void draw() {
+
+    fill(clrPowerUp);
+    ellipse(PowerUpX, PowerUpY, radius, radius);
   }
 
   void respawn() {
+
     PowerUpY = PowerUpLane;
     PowerUpLane = int(random(15));
 
@@ -43,25 +56,11 @@ class PowerUp {
     if (PowerUpLane == 2) {
       PowerUpX = 662;
     }
-  }
+  } 
 
-  void update() {
-    move();
-    //Makes the played be able to shoot once when the player picks up the powerup
-    if (dist(theChr.x, theChr.y, PowerUpX, PowerUpY) < radius/2 + theChr.radius) {
-      CanShoot=true;
-      respawn();
-
-      //Testing cause it won't register the first collision fully
-      println("alksjhdadkalsdjaklsaj");
-    }
-    if (PowerUpY > height) {
-      respawn();
-    }
-  }
-
-  void draw() {
-    ellipse(PowerUpX, PowerUpY, radius, radius);
-    fill(clrPowerUp);
+  void move() {
+    // Change the x location by speed
+    PowerUpY++;
+    PowerUpY = PowerUpY + PowerUpSpeed;
   }
 }

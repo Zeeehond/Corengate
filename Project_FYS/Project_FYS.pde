@@ -24,6 +24,7 @@ int score = m /10;
 Lanes theLns = new Lanes ();
 Char theChr = new Char();
 Enemy theNmy = new Enemy();
+Enemy2 theNmy2 = new Enemy2();
 PowerUp powerUp = new PowerUp();
 PowerSpeed powerSpeed = new PowerSpeed();
 
@@ -35,6 +36,7 @@ void setup() {
   // is 1024 x 720 pixels.
   theChr.init(); 
   theNmy.init();
+    theNmy2.init();
   powerUp.init();
   powerSpeed.init();
   smooth();
@@ -75,6 +77,7 @@ void updateMe() {
   //theLns.updt();
   theChr.update();
   theNmy.update();
+    theNmy2.update();
   powerUp.update();
   powerSpeed.update();
 }
@@ -84,6 +87,7 @@ void drawMe() {
   theLns.draw();
   theChr.draw();
   theNmy.draw();
+   theNmy2.draw();
   powerUp.draw();
   powerSpeed.draw();
   fill(0, 0, 255);
@@ -101,11 +105,14 @@ void reset() {
   alive = true;
   score = 0;
   theNmy.enemySpeed = 1;
+  theNmy2.enemySpeed2 = 1;
   speed = 1; 
   theChr.init(); 
   theNmy.init();
+  theNmy2.init();
   powerUp.init();
   theNmy.draw();
+    theNmy2.draw();
   powerUp.draw();
   powerSpeed.draw();
 }

@@ -6,7 +6,11 @@ int[] scores = new int[5];
   void setup() {
     textSize(30);
     for (int i=0; i<scores.length; i++) {
-      scores[i] = 1000;
+      scores[0] = 2110;
+      scores[1] = 1634;
+      scores[2] = 1590;
+      scores[3] = 1423;
+      scores[4] = score;
     }
   }
 
@@ -18,11 +22,12 @@ int[] scores = new int[5];
     }
     text("Last try: ", 220, 60);
     text(score, 220, 120);
+    text("press 'Z' to restart",720,700);
   }
 
    void keyPressed() {
-     score = int(random(1000));
-     addNewScore(score);
+    // score = int(random(1000));
+    // addNewScore(score);
    }
 
   void addNewScore(int score) {

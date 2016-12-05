@@ -40,41 +40,36 @@ void setup() {
   smooth();
   rectMode(CENTER);
   noStroke();
-  
+
   if (key == CODED) {
-    if (keyCode == ESC){
+    if (keyCode == ESC) {
       //Exit
-      
     }
   }
- }
+}
 
 
 
 
 void keyPressed() {
   theChr.keyPressed();
-  
-    if (key == 'x') {
-      if(powerUp.CanShoot){
-        shots.add(new Shot(theChr.x, theChr.y+10, map(theChr.x, 0, width, 1, 8)));
-        
-        powerUp.CanShoot=false;
-       
-  
-  }
-        
-      
+
+  if (key == 'x') {
+    if (powerUp.CanShoot) {
+      shots.add(new Shot(theChr.x, theChr.y+10, map(theChr.x, 0, width, 1, 8)));
+
+      powerUp.CanShoot=false;
     }
-  
-   if (key == 'z') {
-  if(!alive){
-       reset();
-       
-       loop();
-   }
-           }
-     }
+  }
+
+  if (key == 'z') {
+    if (!alive) {
+      reset();
+
+      loop();
+    }
+  }
+}
 
 void updateMe() {
   //theLns.updt();
@@ -93,34 +88,32 @@ void drawMe() {
   powerSpeed.draw();
   fill(0, 0, 255);
   textSize(20);
-  
-  
+
+
   // Draw shots and remove any that have gone off screen.
-  for (int i=shots.size()-1;i>0;i--)if (shots.get(i).draw())shots.remove(i);
-  
-  
+  for (int i=shots.size()-1; i>0; i--)if (shots.get(i).draw())shots.remove(i);
 }
 
 // Tracks all shots.
 ArrayList<Shot> shots = new ArrayList();
 
 void reset() { 
-   alive = true;
-   score = 0;
-   theNmy.enemySpeed = 1;
-   speed = 1; 
-   theChr.init(); 
-   theNmy.init();
-   powerUp.init();
-   theNmy.draw();
-   powerUp.draw();
-   powerSpeed.draw();
+  alive = true;
+  score = 0;
+  theNmy.enemySpeed = 1;
+  speed = 1; 
+  theChr.init(); 
+  theNmy.init();
+  powerUp.init();
+  theNmy.draw();
+  powerUp.draw();
+  powerSpeed.draw();
 }
 
 
 //------------------------------------- DO NOT CROSS THIS LINE --------------------------------------------
 
-void draw(){
+void draw() {
   updateMe();
   drawMe();
 }

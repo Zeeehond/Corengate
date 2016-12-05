@@ -51,7 +51,7 @@ class PowerUp {
     //Makes the played be able to shoot once when the player picks up the powerup
     if (dist(theChr.x, theChr.y, PowerUpX, PowerUpY) < radius) {
       CanShoot=true;
-      
+
       //Testing cause it won't register the first collision fully
       println("alksjhdadkalsdjaklsaj");
     }
@@ -67,6 +67,5 @@ class PowerUp {
   void draw() {
     ellipse(PowerUpX, PowerUpY, radius, radius);
     fill(clrPowerUp);
-
-    }
   }
+}

@@ -7,9 +7,9 @@ int[] scores = new int[5];
     textSize(30);
     for (int i=0; i<scores.length; i++) {
       scores[0] = 2110;
-      scores[1] = 1634;
-      scores[2] = 1590;
-      scores[3] = 1423;
+      scores[1] = 1934;
+      scores[2] = 1890;
+      scores[3] = 1823;
       scores[4] = score;
     }
   }

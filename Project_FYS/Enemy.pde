@@ -57,13 +57,9 @@ class Enemy {
    alive=false;
    // reset();
   }
-  if ( score %100 == 0) {
+  if ( scoore %100 == 0) {
     enemySpeed += 0.21;
-  }
-  
-  if (m% 10 == 0) {
-     score ++; 
-  }
+   }
   }
     void move(){
 // Change the x location by speed

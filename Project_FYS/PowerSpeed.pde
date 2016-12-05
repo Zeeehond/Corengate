@@ -49,6 +49,7 @@ class PowerSpeed {
     }
     if (dist(theChr.x, theChr.y, PowerSpeedX, PowerSpeedY) < radius + theChr.radius) {
       // Collision
+      scorecount += 500;
       theNmy.enemySpeed += 1;
       speed += 1;
       respawn();

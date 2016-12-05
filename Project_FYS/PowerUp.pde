@@ -57,8 +57,9 @@ class PowerUp {
       println("alksjhdadkalsdjaklsaj");
     }
 
-    if (dist(x, PowerUpY, theNmy.x, theNmy.enemyY) < radius) {
+    if (dist(X, PowerUpY, theNmy.x, theNmy.enemyY) < radius) {
       // Collision
+    
     }
 
     if (theNmy.y==PowerUpY) {
@@ -69,5 +70,5 @@ class PowerUp {
   void move() {
     // Change the x location by speed
     PowerUpY = PowerUpY + PowerUpSpeed;
-  }
+  }  
 }

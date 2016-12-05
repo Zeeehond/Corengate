@@ -1,42 +1,42 @@
-class Enemy {
+class Enemy2 {
 
   //variabelen van de enemy
   int diameter, radius;
   int x;
   int y;
-  int clrEnemy;
-  int enemyX = 512;
-  float enemyY;
-  float enemySpeed = 1;
-  int enemyLane;  
+  int clrEnemy2;
+  int enemy2X = 512;
+  float enemy2Y;
+  float enemySpeed2 = 1;
+  int enemyLane2;  
 
   void init () {
     // intialiseert de variabelen
     diameter = 150;
     radius = diameter /2;
-    clrEnemy = color (255, 0, 0); 
-    enemyY = 50;
+    clrEnemy2 = color (255, 0, 0); 
+    enemy2Y = 50;
   }
 
   void update() {
     move();
 
-    enemyY ++;
+    enemy2Y ++;
 
     //toewijzen van lanes aan de enemy
-    if (enemyY > height) {
-      enemyY = enemyLane;
-      enemyLane = int(random(3));
+    if (enemy2Y > height) {
+      enemy2Y = enemyLane2;
+      enemyLane2 = int(random(3));
 
       //de lanes van de enemy
-      if (enemyLane == 0) {
-        enemyX = 362;
+      if (enemyLane2 == 0) {
+        enemy2X = 362;
       }
-      if (enemyLane == 1) {
-        enemyX = 512;
+      if (enemyLane2 == 1) {
+        enemy2X = 512;
       }
-      if (enemyLane == 2) {
-        enemyX = 662;
+      if (enemyLane2 == 2) {
+        enemy2X = 662;
       }
     }
 
@@ -45,26 +45,26 @@ class Enemy {
       theChr.x = 1100;
       theChr.y = 800;
     }
-    // Collision enemy with player
-    if (dist(theChr.x, theChr.y, enemyX, enemyY) < radius) {
+    // Collision enemy2 with player
+    if (dist(theChr.x, theChr.y, enemy2X, enemy2Y) < radius) {
       alive=false;
       // reset();
     }
 
     // geeft snelheid aan de enemy
     if ( score %100 == 0) {
-      enemySpeed += 0.22;
+      enemySpeed2 += 0.22;
     }
   }
 
   void move() {
     // verandert de snelheid van de enemy op de y-as
-    enemyY = enemyY + enemySpeed;
+    enemy2Y = enemy2Y + enemySpeed2;
   }
 
   void draw() {
     //tekent de enemy
-    fill(clrEnemy);
-    ellipse(enemyX, enemyY, radius, radius);
+    fill(clrEnemy2);
+    ellipse(enemy2X, enemy2Y, radius, radius);
   }
 }

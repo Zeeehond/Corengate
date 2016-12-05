@@ -24,28 +24,28 @@ class PowerSpeed {
 
 
   void respawn() {
-    
-   PowerSpeedY = PowerSpeedLane;
-      PowerSpeedLane = int(random(5));
 
-      if (PowerSpeedLane == 0) {
-        PowerSpeedX = 362;
-      }
-      if (PowerSpeedLane == 1) {
-        PowerSpeedX = 512;
-      }
-      if (PowerSpeedLane == 2) {
-        PowerSpeedX = 662;
-      } 
+    PowerSpeedY = PowerSpeedLane;
+    PowerSpeedLane = int(random(5));
+
+    if (PowerSpeedLane == 0) {
+      PowerSpeedX = 362;
+    }
+    if (PowerSpeedLane == 1) {
+      PowerSpeedX = 512;
+    }
+    if (PowerSpeedLane == 2) {
+      PowerSpeedX = 662;
+    }
   }
 
-  
-  
+
+
   void update() {
     move();
-    
+
     if (PowerSpeedY > height) {
-     respawn();
+      respawn();
     }
     if (dist(theChr.x, theChr.y, PowerSpeedX, PowerSpeedY) < radius + theChr.radius) {
       // Collision
@@ -55,13 +55,13 @@ class PowerSpeed {
       respawn();
     }
   }
-  
-  
+
+
   void draw() {
     fill(clrPowerSpeed);
     ellipse(PowerSpeedX, PowerSpeedY, radius, radius);
   }
-  
+
   void move() {
     // Change the x location by speed
     PowerSpeedY = PowerSpeedY + PowerSpeed;

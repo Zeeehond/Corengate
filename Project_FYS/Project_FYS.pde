@@ -18,8 +18,8 @@ int by = 400;
 int  stage = 0;
 boolean alive = true;
 int scorecount = 0;
-int scoore;
-int playerIndex = 0;
+int[] scores = new int[5];
+int score;
 
 
 Lanes theLns = new Lanes ();
@@ -27,10 +27,9 @@ Char theChr = new Char();
 Enemy theNmy = new Enemy();
 PowerUp powerUp = new PowerUp();
 PowerSpeed powerSpeed = new PowerSpeed();
+Highscore theScore = new Highscore();
 
-// a list of scores is being kept in a ScoreList object 
-ScoreList highscores = new ScoreList();
-  
+
 
 void setup() {
   size(1024, 720);
@@ -45,59 +44,43 @@ void setup() {
   smooth();
   rectMode(CENTER);
   noStroke();
-  
+
   if (key == CODED) {
-    if (keyCode == ESC){
+    if (keyCode == ESC) {
       //Exit
     }
-  } 
-  
-        
- 
- }
+  }
+}
 
 
 
 
 void keyPressed() {
   theChr.keyPressed();
-  
-  
-    if (key == 'x') {
-      if(powerUp.CanShoot){
-        shots.add(new Shot(theChr.x, theChr.y+10, map(theChr.x, 0, width, 1, 8)));
-        
-        powerUp.CanShoot=false;
-       
-  
-  }
-        
-      
+
+
+  if (key == 'x') {
+    if (powerUp.CanShoot) {
+      shots.add(new Shot(theChr.x, theChr.y+10, map(theChr.x, 0, width, 1, 8)));
+
+      powerUp.CanShoot=false;
     }
-  
-   if (key == 'z') {
-  if(!alive){
-       reset();
-       
-       loop();
-   }
-           }
-     
-         
-        
+  }
+
+  if (key == 'z') {
+    if (!alive) {
+      reset();
+      loop();
+    }
+  }
 }
 
 void updateMe() {
-    theLns.update();
+  theLns.update();
   //theChr.draw();
   //theNmy.draw();
   //powerUp.draw();
   powerSpeed.update();
-
-// Add score to highscore list
-        if (alive == false) {
-          highscores.addScore("Player_"+playerIndex++, scoore);  
-        } 
 }
 
 void drawMe() {
@@ -110,40 +93,22 @@ void drawMe() {
   fill(0, 0, 255);
   textSize(20);
   scorecount++; 
-  scoore = scorecount/10;
-  
-  
+  score = scorecount/10;
+
+
   // Draw shots and remove any that have gone off screen.
-  for (int i=shots.size()-1;i>0;i--)if (shots.get(i).draw())shots.remove(i);
-  
+  for (int i=shots.size()-1; i>0; i--)if (shots.get(i).draw())shots.remove(i);
+
   // If player died, do this
   if (alive == false) {
+    
     background(0);  
-    if (key == ' ') highscores.addScore("Player_"+playerIndex++, (int)random(1000));
-  
-    // Display header Row
-    textSize(20);
-    text("Highscore", 100, 40);
-    text("Place      Ghans        Score", 100, 90);
-    
-    textSize(16);
-    // For each score in list
-     for (int iScore=0; iScore<highscores.getScoreCount(); iScore++) {
-     
-    // only show the top 10 scores
-    if (iScore>=9) break;
-    
-    // fetch a score from the list
-    Score score = highscores.getScore(iScore);
-
-    // display score in window
-    text((iScore+1) + "            " + score.name + "        " + score.score, 100, 100 + iScore*20);
-  
-    }
-                 
-
+    theScore.setup();
+    theScore.draw();
+    //theScore.keyPressed();
+    theScore.addNewScore(score);
     noLoop();
-   } 
+    }
 }
 
 
@@ -153,23 +118,23 @@ void drawMe() {
 // Tracks all shots.
 ArrayList<Shot> shots = new ArrayList();
 
-void reset() { 
-   alive = true;
-   scoore = 0;
-   theNmy.enemySpeed = 1;
-   speed = 1; 
-   theChr.init(); 
-   theNmy.init();
-   powerUp.init();
-   theNmy.draw();
-   powerUp.draw();
-   powerSpeed.draw();
+void reset() {
+  score = 0;
+  alive = true;
+  theNmy.enemySpeed = 1;
+  speed = 1; 
+  theChr.init(); 
+  theNmy.init();
+  powerUp.init();
+  theNmy.draw();
+  powerUp.draw();
+  powerSpeed.draw();
 }
 
 
 //------------------------------------- DO NOT CROSS THIS LINE --------------------------------------------
 
-void draw(){
+void draw() {
   updateMe();
   drawMe();
 }

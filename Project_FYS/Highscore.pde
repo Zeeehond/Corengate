@@ -1,9 +1,12 @@
 class Highscore {
+int[] scores = new int[5];
+
+
 
   void setup() {
     textSize(30);
     for (int i=0; i<scores.length; i++) {
-      scores[i] = score;
+      scores[i] = 1000;
     }
   }
 
@@ -17,10 +20,10 @@ class Highscore {
     text(score, 220, 120);
   }
 
-  // void keyPressed() {
-  //   score = int(random(1000));
-  //   addNewScore(score);
-  // }
+   void keyPressed() {
+     score = int(random(1000));
+     addNewScore(score);
+   }
 
   void addNewScore(int score) {
     for (int i=0; i<scores.length; i++) {

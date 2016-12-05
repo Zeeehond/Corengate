@@ -7,7 +7,6 @@ int by = 400;
 int  stage = 0;
 boolean alive = true;
 int scorecount = 0;
-int[] scores = new int[5];
 int score;
 
 
@@ -80,7 +79,7 @@ void drawMe() {
   powerSpeed.draw();
   fill(0, 0, 255);
   textSize(20);
-  
+
 
 
   // Draw shots and remove any that have gone off screen.
@@ -92,7 +91,7 @@ void drawMe() {
     background(0);  
     theScore.setup();
     theScore.draw();
-    //theScore.keyPressed();
+    theScore.keyPressed();
     theScore.addNewScore(score);
     noLoop();
   }

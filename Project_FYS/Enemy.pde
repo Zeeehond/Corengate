@@ -20,9 +20,6 @@ class Enemy {
     enemyY = 50;
   }
 
-
-
-
   void draw() {
 
     move();

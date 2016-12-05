@@ -1,3 +1,6 @@
+import processing.sound.*;
+SoundFile file;
+
 // Declaring the variables
 float y =1;
 float speed = 1;
@@ -37,10 +40,16 @@ void setup() {
     if (keyCode == ESC) {
       //Exit
     }
+   
   }
+ 
+  file = new SoundFile(this, "bgmusic.mp3"); 
+  file.play();
+  file.stop();
+  file.loop();
 }
 
-void keyPressed() {
+void keyPressed() {  
   theChr.keyPressed();
 
 
@@ -71,7 +80,7 @@ void updateMe() {
 }
 
 void drawMe() {
-
+     
   theLns.draw();
   theChr.draw();
   theNmy.draw();
@@ -79,11 +88,8 @@ void drawMe() {
   powerSpeed.draw();
   fill(0, 0, 255);
   textSize(20);
-
-
-
   // Draw shots and remove any that have gone off screen.
-  for (int i=shots.size()-1; i>0; i--)if (shots.get(i).draw())shots.remove(i);
+  for (int i=shots.size()-1; i>-1; i--)if (shots.get(i).draw())shots.remove(i);
 
   // If player died, do this
   if (alive == false) {
@@ -95,6 +101,8 @@ void drawMe() {
     theScore.addNewScore(score);
     noLoop();
   }
+  
+  
 }
 
 // Tracks all shots.

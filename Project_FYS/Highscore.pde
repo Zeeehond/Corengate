@@ -1,17 +1,19 @@
 class Highscore {
 int[] scores = new int[5];
 
-
-
   void setup() {
     textSize(30);
-    for (int i=0; i<scores.length; i++) {
-      scores[0] = 2110;
-      scores[1] = 1934;
-      scores[2] = 1890;
-      scores[3] = 1823;
-      scores[4] = score;
+ 
+   for (int i=0; i<scores.length; i++) {
+     scores[i] += score;
+     score=0;
     }
+  }
+  
+  void scoreUpdate() {
+   
+    
+    
   }
 
   void draw() {
@@ -22,7 +24,7 @@ int[] scores = new int[5];
     }
     text("Last try: ", 220, 60);
     text(score, 220, 120);
-    text("press 'Z' to restart",720,700);
+    text("press Z     to restart",720,700);
   }
 
    void keyPressed() {

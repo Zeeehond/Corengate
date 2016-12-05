@@ -45,7 +45,7 @@ class Enemy {
       theChr.x = 1100;
       theChr.y = 800;
     }
-    // Collision
+    // Collision enemy with player
     if (dist(theChr.x, theChr.y, enemyX, enemyY) < radius) {
       alive=false;
       // reset();

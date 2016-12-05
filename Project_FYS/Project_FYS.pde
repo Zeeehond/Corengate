@@ -95,7 +95,7 @@ void drawMe() {
 
 
   // Draw shots and remove any that have gone off screen.
-  for (int i=shots.size()-1; i>0; i--)if (shots.get(i).draw())shots.remove(i);
+  for (int i=shots.size()-1; i>-1; i--)if (shots.get(i).draw())shots.remove(i);
 }
 
 // Tracks all shots.

@@ -31,19 +31,18 @@ class PowerUp {
   }
 
   void respawn() {
-      PowerUpY = PowerUpLane;
-      PowerUpLane = int(random(15));
+    PowerUpY = PowerUpLane;
+    PowerUpLane = int(random(15));
 
-      if (PowerUpLane == 0) {
-        PowerUpX = 362;
-      }
-      if (PowerUpLane == 1) {
-        PowerUpX = 512;
-      }
-      if (PowerUpLane == 2) {
-        PowerUpX = 662;
-     }
-    
+    if (PowerUpLane == 0) {
+      PowerUpX = 362;
+    }
+    if (PowerUpLane == 1) {
+      PowerUpX = 512;
+    }
+    if (PowerUpLane == 2) {
+      PowerUpX = 662;
+    }
   }
 
   void update() {
@@ -56,12 +55,13 @@ class PowerUp {
       //Testing cause it won't register the first collision fully
       println("alksjhdadkalsdjaklsaj");
     }
-     if (PowerUpY > height) {
-       respawn();
-     }
+    if (PowerUpY > height) {
+      respawn();
+    }
   }
 
   void draw() {
     ellipse(PowerUpX, PowerUpY, radius, radius);
     fill(clrPowerUp);
-  }}
+  }
+}

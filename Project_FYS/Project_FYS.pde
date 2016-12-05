@@ -73,8 +73,8 @@ void keyPressed() {
 
 void updateMe() {
   //theLns.updt();
-  //theChr.draw();
-  //theNmy.draw();
+  theChr.update();
+  theNmy.update();
   powerUp.update();
   powerSpeed.update();
 }

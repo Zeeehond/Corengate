@@ -22,7 +22,7 @@ class Char {
 
 
   void keyPressed() {
-
+    //Controlles van de Character
     if (key== CODED) {
       if (keyCode == RIGHT) {
         x = x+150;
@@ -37,9 +37,8 @@ class Char {
     }
   }
 
-
-  void draw () {
-
+  void update() {
+    //De Lanes
     if (lane < 0) {
       lane = 0;
       x = 362;
@@ -49,7 +48,9 @@ class Char {
       lane = 2;
       x = 662;
     }
+  }
 
+  void draw () {
     // De Charachter      
     fill (clr);
     noStroke();

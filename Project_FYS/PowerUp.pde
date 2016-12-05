@@ -30,8 +30,7 @@ class PowerUp {
     PowerUpY = PowerUpY + PowerUpSpeed;
   }
 
-  void randomspawn() {
-    if (PowerUpY > height) {
+  void respawn() {
       PowerUpY = PowerUpLane;
       PowerUpLane = int(random(15));
 
@@ -43,29 +42,26 @@ class PowerUp {
       }
       if (PowerUpLane == 2) {
         PowerUpX = 662;
-      }
-    }
+     }
+    
   }
 
-  void collision() {
+  void update() {
+    move();
     //Makes the played be able to shoot once when the player picks up the powerup
-    if (dist(theChr.x, theChr.y, PowerUpX, PowerUpY) < radius) {
+    if (dist(theChr.x, theChr.y, PowerUpX, PowerUpY) < radius/2 + theChr.radius) {
       CanShoot=true;
+      respawn();
 
       //Testing cause it won't register the first collision fully
       println("alksjhdadkalsdjaklsaj");
     }
-  }
-
-
-  void update() {
-    move();
-    randomspawn();
-    collision();
+     if (PowerUpY > height) {
+       respawn();
+     }
   }
 
   void draw() {
     ellipse(PowerUpX, PowerUpY, radius, radius);
     fill(clrPowerUp);
-  }
-}
+  }}

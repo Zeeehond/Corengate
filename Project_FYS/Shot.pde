@@ -19,4 +19,4 @@ class Shot {
     py-=vy;
     return(py > height+10);
   }
-} 
+}

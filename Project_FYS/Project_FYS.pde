@@ -10,6 +10,7 @@ int  stage = 0;
 boolean alive = true;
 int scorecount = 0;
 int score;
+int topScore;
 
 
 Lanes theLns = new Lanes ();
@@ -76,6 +77,7 @@ void updateMe() {
   theNmy2.update();
   powerUp.update();
   powerSpeed.update();
+  theScore.update();
   scorecount++;
   score = scorecount/10;
 }
@@ -105,30 +107,30 @@ void drawMe() {
     noLoop();
   }
 }
-  // Tracks all shots.
-  ArrayList<Shot> shots = new ArrayList();
+// Tracks all shots.
+ArrayList<Shot> shots = new ArrayList();
 
-  void reset() { 
-    alive = true;
-    score = 0;
-    scorecount = 0;
-    theNmy.enemySpeed = 1;
-    theNmy2.enemySpeed2 = 1;
-    speed = 1; 
-    theChr.init(); 
-    theNmy.init();
-    theNmy2.init();
-    powerUp.init();
-    theNmy.draw();
-    theNmy2.draw();
-    powerUp.draw();
-    powerSpeed.draw();
-  }
+void reset() { 
+  alive = true;
+  score = 0;
+  scorecount = 0;
+  theNmy.enemySpeed = 1;
+  theNmy2.enemySpeed2 = 1;
+  speed = 1; 
+  theChr.init(); 
+  theNmy.init();
+  theNmy2.init();
+  powerUp.init();
+  theNmy.draw();
+  theNmy2.draw();
+  powerUp.draw();
+  powerSpeed.draw();
+}
 
 
-  //------------------------------------- DO NOT CROSS THIS LINE --------------------------------------------
+//------------------------------------- DO NOT CROSS THIS LINE --------------------------------------------
 
-  void draw() {
-    updateMe();
-    drawMe();
-  }
+void draw() {
+  updateMe();
+  drawMe();
+}

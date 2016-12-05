@@ -55,7 +55,6 @@ class Enemy2 {
     if ( score %100 == 0) {
       enemySpeed2 += 0.22;
     }
-
   }
 
   void move() {

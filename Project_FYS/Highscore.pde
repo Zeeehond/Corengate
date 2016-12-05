@@ -3,7 +3,6 @@ class Highscore {
 
   void setup() {
     textSize(30);
-
     for (int i=0; i<scores.length; i++) {
       scores[i] += score;
       score=0;
@@ -16,11 +15,14 @@ class Highscore {
     for (int i=0; i<scores.length; i++) {
       text(scores[i], 50, 120+60*i);
     }
-    //text("Last try: ", 220, 60);
-    //text(score, 220, 120);
-    text("press Z     to restart", 720, 700);
+    text("Highest Score: ", 220, 60);
+    text(topScore, 220, 120);
+    text("press Z to restart", 720, 700);
   }
   void update() {
+    if (scorecount/10 >= topScore) {
+      topScore = scorecount/10;
+    }
   }
   void addNewScore(int score) {
     for (int i=0; i<scores.length; i++) {

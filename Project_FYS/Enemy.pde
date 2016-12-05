@@ -22,7 +22,7 @@ class Enemy {
     move();
 
     enemyY ++;
-    
+
     //toewijzen van lanes aan de enemy
     if (enemyY > height) {
       enemyY = enemyLane;

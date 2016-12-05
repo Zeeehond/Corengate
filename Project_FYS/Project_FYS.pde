@@ -80,7 +80,7 @@ void updateMe() {
 }
 
 void drawMe() {
-//tekent het spel
+  //tekent het spel
   theLns.draw();
   theChr.draw();
   theNmy.draw();

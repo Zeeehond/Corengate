@@ -46,7 +46,7 @@ class Enemy2 {
       theChr.y = 800;
     }
     // Collision enemy2 with player
-    if (dist(theChr.x, theChr.y, enemy2X, enemy2Y) < radius) {
+    if (dist(theChr.x, theChr.y, enemy2X, enemy2Y) < radius && !star.STAR) {
       alive=false;
       // reset();
     }

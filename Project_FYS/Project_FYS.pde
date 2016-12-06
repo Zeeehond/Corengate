@@ -20,6 +20,8 @@ Enemy2 theNmy2 = new Enemy2();
 PowerUp powerUp = new PowerUp();
 PowerSpeed powerSpeed = new PowerSpeed();
 Highscore theScore = new Highscore();
+Star star = new Star();
+
 
 void setup() {
   size(1024, 720);
@@ -27,11 +29,13 @@ void setup() {
   // The background image must be the same size as the parameters
   // into the size() method. In this program, the size of the image
   // is 1024 x 720 pixels.
+
   theChr.init(); 
   theNmy.init();
   theNmy2.init();
   powerUp.init();
   powerSpeed.init();
+  star.init();
   smooth();
   rectMode(CENTER);
   noStroke();
@@ -78,6 +82,7 @@ void updateMe() {
   powerUp.update();
   powerSpeed.update();
   theScore.update();
+  star.update();
   scorecount++;
   score = scorecount/10;
 }
@@ -90,6 +95,7 @@ void drawMe() {
   theNmy2.draw();
   powerUp.draw();
   powerSpeed.draw();
+  star.draw();
   fill(0, 0, 255);
   textSize(20);
 
@@ -125,7 +131,12 @@ void reset() {
   theNmy2.draw();
   powerUp.draw();
   powerSpeed.draw();
+  star.draw();
+  
+
 }
+  
+
 
 
 //------------------------------------- DO NOT CROSS THIS LINE --------------------------------------------

@@ -10,7 +10,7 @@ class Enemy {
   float enemySpeed = 1;
   int enemyLane;  
 
-boolean hit = false;
+  boolean hit = false;
 
 
 
@@ -54,7 +54,7 @@ boolean hit = false;
     }
     // Collision enemy with player
     if (dist(theChr.x, theChr.y, enemyX, enemyY) < radius && !star.STAR) {
-     
+
       alive=false;
       // reset();
     }

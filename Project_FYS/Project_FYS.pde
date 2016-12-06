@@ -129,13 +129,11 @@ void reset() {
   powerUp.init();
   theNmy.draw();
   theNmy2.draw();
- // powerUp.draw();
+  // powerUp.draw();
   powerSpeed.draw();
   star.draw();
-  
-
 }
-  
+
 
 
 

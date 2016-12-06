@@ -10,12 +10,12 @@ class Star {
   float star =1;
   int starLane;  
   int STARCounter;
-  
+
 
   boolean STAR = false;
 
   void init () {
- STARCounter = 0;
+    STARCounter = 0;
 
     diameter = 50;
     radius = diameter /2;
@@ -53,21 +53,19 @@ class Star {
     if (dist(theChr.x, theChr.y, starX, starY) < radius + theChr.radius) {
       // Collision
       STAR = true;
-
-     
+    }
+    if (STAR == true) {
+      STARCounter ++;
+      if (STARCounter == 300) {
+        STAR = false;
+        STARCounter = 0;
       }
- if (STAR == true) {
-        STARCounter ++;
-        if (STARCounter == 300) {
-          STAR = false;
-          STARCounter = 0;
-        }
 
 
 
-      
 
-     respawn();
+
+      respawn();
     }
   }
 

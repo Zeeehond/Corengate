@@ -19,7 +19,7 @@ class Star {
 
     diameter = 50;
     radius = diameter /2;
-    clrstar = color (0, 0, 0 );
+    clrstar = color (253, 245, 36 );
 
     starY = -100;
   }

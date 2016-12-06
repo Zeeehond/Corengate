@@ -33,7 +33,7 @@ void setup() {
   theChr.init(); 
   theNmy.init();
   theNmy2.init();
-  powerUp.init();
+  //powerUp.init();
   powerSpeed.init();
   star.init();
   smooth();
@@ -79,7 +79,7 @@ void updateMe() {
   theChr.update();
   theNmy.update();
   theNmy2.update();
-  powerUp.update();
+  //powerUp.update();
   powerSpeed.update();
   theScore.update();
   star.update();
@@ -93,7 +93,7 @@ void drawMe() {
   theChr.draw();
   theNmy.draw();
   theNmy2.draw();
-  powerUp.draw();
+  //powerUp.draw();
   powerSpeed.draw();
   star.draw();
   fill(0, 0, 255);
@@ -129,7 +129,7 @@ void reset() {
   powerUp.init();
   theNmy.draw();
   theNmy2.draw();
-  powerUp.draw();
+ // powerUp.draw();
   powerSpeed.draw();
   star.draw();
   

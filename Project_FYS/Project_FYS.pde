@@ -19,6 +19,7 @@ Enemy theNmy = new Enemy();
 Enemy2 theNmy2 = new Enemy2();
 PowerUp powerUp = new PowerUp();
 PowerSpeed powerSpeed = new PowerSpeed();
+PowerDown PowerDown = new PowerDown();
 Highscore theScore = new Highscore();
 Star star = new Star();
 
@@ -80,6 +81,7 @@ void updateMe() {
   theNmy.update();
   theNmy2.update();
   //powerUp.update();
+  PowerDown.update();
   powerSpeed.update();
   theScore.update();
   star.update();
@@ -94,6 +96,7 @@ void drawMe() {
   theNmy.draw();
   theNmy2.draw();
   //powerUp.draw();
+  PowerDown.draw();
   powerSpeed.draw();
   star.draw();
   fill(0, 0, 255);

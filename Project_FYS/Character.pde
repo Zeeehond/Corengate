@@ -4,7 +4,7 @@ class Char {
   int x, y; // Positie
   int vx; // snelheid
   int radius; //diameter
-  int clr; // kleur
+  int charClr; // kleur
   int lane; // welke lane is de character
   int spriteFrame = 0; //laat de animatiecycle beginnen op de eerste frame
   PImage char0, char1, char2, char3; //afbeeldingen voor de character
@@ -19,14 +19,13 @@ class Char {
     //void init  initialiseert de variabelen
     
     //hoe groot is de character
-    //radius = 45;
     lengte = 180;
     breedte = 111;
     //waar bevind de character zich
     x = width/2 - breedte/2;
     y = height - lengte; 
-    //welke kleur krjgt de character
-    clr = color (0, 255, 80);
+    //welke kleur krijgt de character
+    charClr = color (0, 255, 80);
     lane = 1;
   }
 

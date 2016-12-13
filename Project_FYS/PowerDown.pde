@@ -47,7 +47,7 @@ class PowerDown {
     if (PowerDownY > height) {
       respawn();
     }
-    if (dist(theChr.x, theChr.y, PowerDownX, PowerDownY) < radius + theChr.radius) {
+    if (dist(theChr.x, theChr.y, PowerDownX, PowerDownY) < theChr.lengte /2 - 33) {
       // Collision
       scorecount += 500;
       theNmy.enemySpeed += 1;
@@ -65,6 +65,7 @@ class PowerDown {
 
   void move() {
     // Change the x location by speed
+    PowerDownY++;
     PowerDownY = PowerDownY + PowerDown;
   }
 }

@@ -11,8 +11,11 @@ boolean alive = true;
 int scorecount = 0;
 int score;
 int topScore;
-
-
+ String time = "020";
+int t;
+int interval = 20;
+ 
+        
 Lanes theLns = new Lanes ();
 Char theChr = new Char();
 Enemy theNmy = new Enemy();
@@ -22,7 +25,7 @@ PowerSpeed powerSpeed = new PowerSpeed();
 PowerDown PowerDown = new PowerDown();
 Highscore theScore = new Highscore();
 Star star = new Star();
-
+Timer Timer = new Timer();
 
 void setup() {
   size(1024, 720);
@@ -30,7 +33,6 @@ void setup() {
   // The background image must be the same size as the parameters
   // into the size() method. In this program, the size of the image
   // is 1024 x 720 pixels.
-
   theChr.init(); 
   theNmy.init();
   theNmy2.init();
@@ -85,6 +87,7 @@ void updateMe() {
   powerSpeed.update();
   theScore.update();
   star.update();
+  Timer.update();
   scorecount++;
   score = scorecount/10;
 }
@@ -99,6 +102,7 @@ void drawMe() {
   PowerDown.draw();
   powerSpeed.draw();
   star.draw();
+
   fill(0, 0, 255);
   textSize(20);
 

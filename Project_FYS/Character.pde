@@ -17,7 +17,7 @@ class Char {
     char2 = loadImage("character-2.png");
     char3 = loadImage("character-3.png");
     //void init  initialiseert de variabelen
-    
+
     //hoe groot is de character
     lengte = 180;
     breedte = 111;
@@ -57,7 +57,7 @@ class Char {
       lane = 2;
       x = width/2 + 95;
     }
-    
+
     //Animatie van de character
     spriteFrame++;
     if (spriteFrame == 21) spriteFrame = 0;
@@ -68,8 +68,8 @@ class Char {
     //fill (clr);
     //noStroke();
     //ellipse(x, y, radius*2, radius*2);
-    
-    if (spriteFrame <= 5){
+
+    if (spriteFrame <= 5) {
       image(char0, x, y, breedte, lengte);
     } else if (spriteFrame > 5 && spriteFrame <= 10) {
       image(char1, x, y, breedte, lengte);

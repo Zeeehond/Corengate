@@ -11,11 +11,11 @@ boolean alive = true;
 int scorecount = 0;
 int score;
 int topScore;
- String time = "020";
+String time = "020";
 int t;
 int interval = 20;
- 
-        
+
+
 Lanes theLns = new Lanes ();
 Char theChr = new Char();
 Enemy theNmy = new Enemy();
@@ -25,7 +25,7 @@ PowerSpeed powerSpeed = new PowerSpeed();
 PowerDown PowerDown = new PowerDown();
 Highscore theScore = new Highscore();
 Star star = new Star();
-Timer Timer = new Timer();
+invTimer invTimer = new invTimer();
 
 void setup() {
   size(1024, 720);
@@ -87,7 +87,7 @@ void updateMe() {
   powerSpeed.update();
   theScore.update();
   star.update();
-  Timer.update();
+  invTimer.update();
   scorecount++;
   score = scorecount/10;
 }

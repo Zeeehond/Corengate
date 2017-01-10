@@ -1,6 +1,10 @@
+//Importing the sound library and the songs from the map 'data'.
 import processing.sound.*;
 SoundFile file;
+SoundFile fileStar;
+SoundFile fileSpeed;
 
+//Declaring the variables.
 float y =1;
 float speed = 1;
 PImage d;
@@ -11,9 +15,9 @@ boolean alive = true;
 int scorecount = 0;
 int score;
 int topScore;
-String time = "020";
+String time = "001";
 int t;
-int interval = 20;
+int interval = 1;
 
 
 Lanes theLns = new Lanes ();
@@ -25,7 +29,7 @@ PowerSpeed powerSpeed = new PowerSpeed();
 PowerDown PowerDown = new PowerDown();
 Highscore theScore = new Highscore();
 Star star = new Star();
-invTimer invTimer = new invTimer();
+Timer Timer = new Timer();
 
 void setup() {
   size(1024, 720);
@@ -43,12 +47,18 @@ void setup() {
   rectMode(CENTER);
   noStroke();
 
+  // If 'esc' is pressed, exit the game.
   if (key == CODED) {
     if (keyCode == ESC) {
       //Exit
     }
   }
+  //Retrieving the songs including the backgroundmusic from the map 'data'.
+  fileStar = new SoundFile(this, "star.wav");
+  fileSpeed = new SoundFile(this, "speed.wav"); 
   file = new SoundFile(this, "bgmusic.mp3"); 
+
+  //since the backgroundmusic is name 'file' were starting the song, we make ik stop and in the end loop this proces.  
   file.play();
   file.stop();
   file.loop();
@@ -56,18 +66,12 @@ void setup() {
 
 
 
-
+// The function keypressed which will work if a certain key is pressed.
 void keyPressed() {
+  //The character momevent, make's the character moves left to right.
   theChr.keyPressed();
 
-  if (key == 'x') {
-    if (powerUp.CanShoot) {
-      shots.add(new Shot(theChr.x, theChr.y+10, map(theChr.x, 0, width, 1, 8)));
-
-      powerUp.CanShoot=false;
-    }
-  }
-
+  //If the 'z' key is pressed and player is not alive, the game will restart.
   if (key == 'z') {
     if (!alive) {
       reset();
@@ -76,7 +80,7 @@ void keyPressed() {
     }
   }
 }
-
+//Retreiving all the updates 
 void updateMe() {
   theLns.update();
   theChr.update();
@@ -87,42 +91,40 @@ void updateMe() {
   powerSpeed.update();
   theScore.update();
   star.update();
-  invTimer.update();
+  Timer.update();
+  
+  //Since the update is updated every frame, each frame we add 1 to our score. The score is divided by 10 to make to score smooth. 
   scorecount++;
   score = scorecount/10;
 }
 
+//Retreiving all the draw's. This is done once per game, and not every frame.
 void drawMe() {
-
   theLns.draw();
-  theChr.draw();
+  powerSpeed.draw();
   theNmy.draw();
   theNmy2.draw();
   //powerUp.draw();
   PowerDown.draw();
-  powerSpeed.draw();
   star.draw();
-
+  theChr.draw();
   fill(0, 0, 255);
   textSize(20);
 
 
-  // Draw shots and remove any that have gone off screen.
-  for (int i=shots.size()-1; i>-1; i--)if (shots.get(i).draw())shots.remove(i);
-
+  // If the player dies, do the following. 
   if (alive == false) {
 
     background(0);  
     theScore.setup();
     theScore.draw();
     theScore.update();
-    theScore.addNewScore(score);
+    theScore.addNewScore(score); 
     noLoop();
   }
 }
-// Tracks all shots.
-ArrayList<Shot> shots = new ArrayList();
 
+// If the game resets, do the following steps. 
 void reset() { 
   alive = true;
   score = 0;
@@ -134,6 +136,8 @@ void reset() {
   theNmy.init();
   theNmy2.init();
   powerUp.init();
+  star.init();
+  powerSpeed.init();
   theNmy.draw();
   theNmy2.draw();
   // powerUp.draw();

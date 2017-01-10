@@ -15,8 +15,6 @@ class PowerUp {
 
 
   void init () {
-
-
     diameter = 50;
     radius = diameter /2;
     clrPowerUp = color (0, 0, 255);
@@ -27,7 +25,7 @@ class PowerUp {
   void update() {
     move();
     // makes the player able to shoot once when the player picks up the power-up
-    if (dist(theChr.x, theChr.y, PowerUpX, PowerUpY) < theChr.lengte /2 - 33) {
+    if (dist(theChr.x, theChr.y, PowerUpX, PowerUpY) < theChr.charLength/2) {
       CanShoot = true;
       respawn();
     } 

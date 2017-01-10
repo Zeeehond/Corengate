@@ -17,7 +17,7 @@ class PowerDown {
 
     diameter = 50;
     radius = diameter /2;
-    PowerDownLane = color (0, 150, 150 );
+    clrPowerDown = color (0, 150, 150 );
 
     PowerDownY = -100;
   }
@@ -47,7 +47,7 @@ class PowerDown {
     if (PowerDownY > height) {
       respawn();
     }
-    if (dist(theChr.x, theChr.y, PowerDownX, PowerDownY) < theChr.lengte /2 - 33) {
+    if (dist(theChr.x, theChr.y, PowerDownX, PowerDownY) < theChr.charLength /2 - 33) {
       // Collision
       scorecount += 500;
       theNmy.enemySpeed += 1;

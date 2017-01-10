@@ -53,7 +53,7 @@ boolean STAR = false;
    if(overlapsPlayer((int)starX,(int)starY))
    {
       // Collision
-      fileStar.play();
+      starSound.play();
       STAR = true;
      // println("yas");
      respawn();

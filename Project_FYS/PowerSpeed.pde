@@ -55,7 +55,7 @@ class PowerSpeed {
       if(overlapsPlayer((int)PowerSpeedX, (int)PowerSpeedY))
       {
         // Collision
-        fileSpeed.play();
+        speedSound.play();
         scorecount += 500;
         theNmy.enemySpeed += 1;
         theNmy2.enemySpeed2 += 1;

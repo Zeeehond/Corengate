@@ -19,7 +19,7 @@ class Star {
 
     diameter = 50;
     radius = diameter /2;
-    clrstar = color (0, 0, 0 );
+    clrstar = color (253, 245, 36 );
 
     starY = -100;
   }
@@ -53,7 +53,9 @@ class Star {
     if (dist(theChr.x, theChr.y, starX, starY) < radius + theChr.radius) {
       // Collision
       STAR = true;
-
+speed += 1;
+theNmy.enemySpeed += 0.5;
+      theNmy2.enemySpeed2 += 0.5;
      
       }
  if (STAR == true) {

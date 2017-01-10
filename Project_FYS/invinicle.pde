@@ -14,8 +14,8 @@ class Star {
   PImage inv;
   int invLength;
   int invWidth;
-  
-boolean STAR = false;
+
+  boolean STAR = false;
 
   void init () {
     STARCounter = 0;
@@ -31,18 +31,18 @@ boolean STAR = false;
 
   void respawn() {
     if (t == 0) {
-    starY = starLane;
-    starLane = int(random(3));
+      starY = starLane;
+      starLane = int(random(3));
 
-    if (starLane == 0) {
-      starX = 362;
-    }
-    if (starLane == 1) {
-      starX = 512;
-    }
-    if (starLane == 2) {
-      starX = 662;
-     }
+      if (starLane == 0) {
+        starX = 362;
+      }
+      if (starLane == 1) {
+        starX = 512;
+      }
+      if (starLane == 2) {
+        starX = 662;
+      }
     }
   }
 
@@ -50,47 +50,40 @@ boolean STAR = false;
   void update() {
     move();
 
-   if(overlapsPlayer((int)starX,(int)starY))
-   {
+    if (overlapsPlayer((int)starX, (int)starY))
+    {
       // Collision
       starSound.play();
       STAR = true;
-<<<<<<< HEAD
-speed += 1;
-theNmy.enemySpeed += 0.5;
+      speed += 1;
+      theNmy.enemySpeed += 0.5;
       theNmy2.enemySpeed2 += 0.5;
-=======
-     // println("yas");
-     respawn();
-     
->>>>>>> origin/master
-     
-   }
-   if (STAR == true) {
-            starX = 1500; 
-           STARCounter++;
-           
-           tintClr = int(random(2));
-     
-               if (tintClr == 0) 
-               {
-               tint(255,255,0);
-               }
-               if (tintClr == 1)
-               {
-                tint(255,100,0); 
-               }
-               
-   }
-      if (STARCounter == 300) {
-        STAR = false;
-        STARCounter = 0;
-        noTint();
-    
+      // println("yas");
+      respawn();
+    }
+    if (STAR == true) {
+      starX = 1500; 
+      STARCounter++;
+
+      tintClr = int(random(2));
+
+      if (tintClr == 0) 
+      {
+        tint(255, 255, 0);
       }
+      if (tintClr == 1)
+      {
+        tint(255, 100, 0);
+      }
+    }
+    if (STARCounter == 300) {
+      STAR = false;
+      STARCounter = 0;
+      noTint();
+    }
 
     if (starY > height) {
-    respawn();
+      respawn();
     }
   }
 
@@ -98,8 +91,7 @@ theNmy.enemySpeed += 0.5;
   void draw() {
     //Tekent de sprite voor invincibility
     image(inv, starX - invWidth/2, starY - invLength/2);
-      
-}
+  }
 
 
   void move() {

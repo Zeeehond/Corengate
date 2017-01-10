@@ -86,12 +86,8 @@ void updateMe() {
   theChr.update();
   theNmy.update();
   theNmy2.update();
-<<<<<<< HEAD
- // powerUp.update();
-=======
-  //powerUp.update();
+ //powerUp.update();
   PowerDown.update();
->>>>>>> origin/master
   powerSpeed.update();
   theScore.update();
   star.update();
@@ -109,11 +105,8 @@ void drawMe() {
   theNmy.draw();
   theNmy2.draw();
   //powerUp.draw();
-<<<<<<< HEAD
   powerSpeed.draw();
-=======
   PowerDown.draw();
->>>>>>> origin/master
   star.draw();
   theChr.draw();
   fill(0, 0, 255);
@@ -148,11 +141,7 @@ void reset() {
   powerSpeed.init();
   theNmy.draw();
   theNmy2.draw();
-<<<<<<< HEAD
   //powerUp.draw();
-=======
-  // powerUp.draw();
->>>>>>> origin/master
   powerSpeed.draw();
   star.draw();
 }

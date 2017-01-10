@@ -9,19 +9,17 @@ class Enemy {
   float enemyY;
   float enemySpeed = 1;
   int enemyLane;  
+  PImage guard;
+  int guardLength; //Lengte van de enemy sprite
+  int guardWidth; //Breedte van de enemy sprite
 
-boolean hit = false;
-
-
-
-
-
+  boolean hit = false;
 
   void init () {
     // intialiseert de variabelen
-    diameter = 150;
-    radius = diameter /2;
-    clrEnemy = color (255, 0, 0); 
+    guard = loadImage("guard.png");
+    guardLength = 100;
+    guardWidth = 75;
     enemyY = 50;
   }
 
@@ -53,10 +51,10 @@ boolean hit = false;
       theChr.y = 800;
     }
     // Collision enemy with player
-    if (dist(theChr.x, theChr.y, enemyX, enemyY) < radius && !star.STAR) {
-     
-      alive=false;
-      // reset();
+    if(overlapsPlayer((int)enemyX, (int)enemyY) && !star.STAR)
+    {
+      alive = false;
+      //reset();
     }
 
     // geeft snelheid aan de enemy
@@ -72,7 +70,6 @@ boolean hit = false;
 
   void draw() {
     //tekent de enemy
-    fill(clrEnemy);
-    ellipse(enemyX, enemyY, radius, radius);
+    image(guard, enemyX - guardWidth/2, enemyY - guardLength/2);
   }
 }

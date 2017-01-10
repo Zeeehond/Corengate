@@ -4,25 +4,35 @@ class Char {
   int x, y; // Positie
   int vx; // snelheid
   int radius; //diameter
-  int clr; // kleur
+  int charClr; // kleur
   int lane; // welke lane is de character
+  int spriteFrame = 0; //laat de animatiecycle beginnen op de eerste frame
+  PImage char0, char1, char2, char3; //afbeeldingen voor de character
+  int charLength; //lengte van de charactersprite
+  int charWidth; //breedte van de charactersprite
 
+ 
   void init () {
+    char0 = loadImage("character-0.png");
+    char1 = loadImage("character-1.png");
+    char2 = loadImage("character-2.png");
+    char3 = loadImage("character-3.png");
     //void init  initialiseert de variabelen
-
-    //waar bevind de character zich
-    x = width/2;
-    y = 620; 
+    
     //hoe groot is de character
-    radius = 45;
-    //welke kleur krjgt de character
-    clr = color (0, 255, 80);
+    charLength = 135;
+    charWidth = 83;
+    //waar bevind de character zich
+    x = width/2 - charWidth/2;
+    y = height - charLength; 
+    //welke kleur krijgt de character
+    charClr = color (0, 255, 80);    
     lane = 1;
   }
 
 
   void keyPressed() {
-    //Controlles van de Character
+    //Controls van de Character
     if (key== CODED) {
       if (keyCode == RIGHT) {
         x = x+150;
@@ -38,22 +48,36 @@ class Char {
   }
 
   void update() {
-    //De Lanes
+    //Zorgt ervoor dat de speler niet van de lanes af kan gaan.
     if (lane < 0) {
       lane = 0;
-      x = 362;
+      x = width/2 - 191;
     }
 
-    if (lane >2) {
+    if (lane > 2) {
       lane = 2;
-      x = 662;
+      x = width/2 + 109;
     }
+    
+    //Animatie van de character
+    spriteFrame++;
+    if (spriteFrame == 21) spriteFrame = 0;
   }
 
   void draw () {
-    // De Charachter      
-    fill (clr);
-    noStroke();
-    ellipse(x, y, radius*2, radius*2);
+    // De Character      
+    //fill (clr);
+    //noStroke();
+    //ellipse(x, y, radius*2, radius*2);
+    
+    if (spriteFrame <= 5){
+      image(char0, x, y, charWidth, charLength);
+    } else if (spriteFrame > 5 && spriteFrame <= 10) {
+      image(char1, x, y, charWidth, charLength);
+    } else if (spriteFrame > 10 && spriteFrame <= 15) {
+      image(char2, x, y, charWidth, charLength);
+    } else if (spriteFrame > 15 && spriteFrame <= 20) {
+      image(char3, x, y, charWidth, charLength);
+    }
   }
 }

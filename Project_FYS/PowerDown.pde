@@ -43,17 +43,20 @@ class PowerDown {
 
   void update() {
     move();
-
-    if (PowerDownY > height) {
-      respawn();
-    }
-    if (dist(theChr.x, theChr.y, PowerDownX, PowerDownY) < radius + theChr.radius) {
-      // Collision
-      scorecount += 500;
-      theNmy.enemySpeed += 1;
-      theNmy2.enemySpeed2 += 1;
-      speed += 1;
-      respawn();
+// de powerdown spawnr pas wanneer er 1000 punten zijn
+    if (score >= 1000) {
+      if (PowerDownY > height) {
+        respawn();
+      }
+      // collision van de speler met de powerdown
+      if (overlapsPlayer((int)PowerDownX, (int)PowerDownY)) {
+        // de effecten van de collision
+        scorecount += 500;
+        theNmy.enemySpeed -= 1.5;
+        theNmy2.enemySpeed2 -= 1.5;
+        speed += 1;
+        respawn();
+      }
     }
   }
 

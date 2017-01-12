@@ -17,7 +17,7 @@ class PowerDown {
 
     diameter = 50;
     radius = diameter /2;
-    PowerDownLane = color (0, 150, 150 );
+    clrPowerDown = color (0, 150, 150 );
 
     PowerDownY = -100;
   }
@@ -43,6 +43,7 @@ class PowerDown {
 
   void update() {
     move();
+<<<<<<< HEAD
 // de powerdown spawnr pas wanneer er 1000 punten zijn
     if (score >= 1000) {
       if (PowerDownY > height) {
@@ -57,6 +58,19 @@ class PowerDown {
         speed += 1;
         respawn();
       }
+=======
+
+    if (PowerDownY > height) {
+      respawn();
+    }
+    if (dist(theChr.x, theChr.y, PowerDownX, PowerDownY) < theChr.charLength /2 - 33) {
+      // Collision
+      scorecount += 500;
+      theNmy.enemySpeed += 1;
+      theNmy2.enemySpeed2 += 1;
+      speed += 1;
+      respawn();
+>>>>>>> origin/master
     }
   }
 
@@ -68,6 +82,7 @@ class PowerDown {
 
   void move() {
     // Change the x location by speed
+    PowerDownY++;
     PowerDownY = PowerDownY + PowerDown;
   }
 }

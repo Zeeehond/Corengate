@@ -44,7 +44,7 @@ class PowerDown {
 
   void update() {
     move();
-// de powerdown spawnr pas wanneer er 1000 punten zijn
+// de powerdown spawnt pas wanneer er 1000 punten zijn
     if (score >= 700) {
       if (PowerDownY > height) {
         respawn();

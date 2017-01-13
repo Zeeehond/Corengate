@@ -8,22 +8,23 @@ class PowerDown {
   int clrPowerDown;
   int PowerDownX = 512;
   float PowerDownY;
-  float PowerDown = -1;
-  int PowerDownLane;  
+  float PowerDown = 1;
+  int PowerDownLane;
 
 
   void init () {
 
-
+    // hier wordt alles geinitialiseert van de powerdown
     diameter = 50;
     radius = diameter /2;
-    clrPowerDown = color (0, 150, 150 );
+    clrPowerDown = color (150, 30, 150 );
 
     PowerDownY = -100;
   }
 
 
   void respawn() {
+    //De Spawn van de powerdown
 
     PowerDownY = PowerDownLane;
     PowerDownLane = int(random(5));
@@ -43,9 +44,8 @@ class PowerDown {
 
   void update() {
     move();
-<<<<<<< HEAD
-// de powerdown spawnr pas wanneer er 1000 punten zijn
-    if (score >= 1000) {
+    // de powerdown spawnr pas wanneer er 1000 punten zijn
+    if (score >= 700) {
       if (PowerDownY > height) {
         respawn();
       }
@@ -58,19 +58,6 @@ class PowerDown {
         speed += 1;
         respawn();
       }
-=======
-
-    if (PowerDownY > height) {
-      respawn();
-    }
-    if (dist(theChr.x, theChr.y, PowerDownX, PowerDownY) < theChr.charLength /2 - 33) {
-      // Collision
-      scorecount += 500;
-      theNmy.enemySpeed += 1;
-      theNmy2.enemySpeed2 += 1;
-      speed += 1;
-      respawn();
->>>>>>> origin/master
     }
   }
 

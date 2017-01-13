@@ -8,4 +8,4 @@ boolean overlapsPlayer(int x, int y)
           y >= playerY  &&                        //star object is farther down than top of player
           y <= height
         );  
-}t
+}

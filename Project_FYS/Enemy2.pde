@@ -23,10 +23,10 @@ class Enemy2 {
 
   void update() {
     move();
-  
+
     enemy2Y ++;
     enemy2Y = theNmy.enemyY;
-    
+
     //toewijzen van lanes aan de enemy
     if (enemy2Y > height) {
       enemy2Y = enemyLane2;
@@ -52,11 +52,11 @@ class Enemy2 {
     // Collision enemy2 with player
     /*
     if (dist(theChr.x, theChr.y, enemy2X, enemy2Y) < radius && !star.STAR) {
-      alive=false;
-      // reset();
-    }
-    */
-    if(overlapsPlayer((int)enemy2X, (int)enemy2Y) && !star.STAR)
+     alive=false;
+     // reset();
+     }
+     */
+    if (overlapsPlayer((int)enemy2X, (int)enemy2Y) && !star.STAR)
     {
       alive = false;
     }
@@ -72,7 +72,7 @@ class Enemy2 {
     enemy2Y = enemy2Y + enemySpeed2;
   }
 
-    void draw() {
+  void draw() {
     //tekent de enemy
     image(guard, enemy2X - guardWidth/2, enemy2Y - guardLength/2);
   }

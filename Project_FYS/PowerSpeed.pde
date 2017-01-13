@@ -15,7 +15,7 @@ class PowerSpeed {
   int convWidth;
   int speedCounter;
   boolean powerSpeed;
- 
+
 
   void init () {
     //Loading the images
@@ -92,17 +92,16 @@ class PowerSpeed {
     //fill(clrPowerSpeed);
     //ellipse(PowerSpeedX, PowerSpeedY, radius, radius);
     if (powerSpeed == true) {
-    speedCounter ++;
-    textFont(Font1);
-    textSize(32);
-    fill(250,50,20);
-    text("50 points EXTRA!", 150, 100);
-    text("50 points EXTRA for you!", 350, 300);
-    text("50 points good job!", 550, 500);
-    text("Keep them coming!!", 750, 700);
-    
+      speedCounter ++;
+      textFont(Font1);
+      textSize(32);
+      fill(250, 50, 20);
+      text("50 points EXTRA!", 150, 100);
+      text("50 points EXTRA for you!", 350, 300);
+      text("50 points good job!", 550, 500);
+      text("Keep them coming!!", 750, 700);
     }
-    
+
     if (speedCounter == 100) {
       powerSpeed = false;
       speedCounter = 0;

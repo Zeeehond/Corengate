@@ -32,7 +32,6 @@ Lanes theLns = new Lanes ();
 Char theChr = new Char();
 Enemy theNmy = new Enemy();
 Enemy2 theNmy2 = new Enemy2();
-PowerUp powerUp = new PowerUp();
 PowerSpeed powerSpeed = new PowerSpeed();
 PowerDown PowerDown = new PowerDown();
 Highscore theScore = new Highscore();
@@ -78,11 +77,10 @@ void setup() {
   file = new SoundFile(this, "bgmusic.mp3"); 
 
   //since the backgroundmusic is name 'file' were starting the song, we make ik stop and in the end loop this proces.  
- 
+
   file.play();
   file.stop();
   file.loop();
- 
 }
 
 //Retreiving all the updates 
@@ -121,7 +119,7 @@ void drawMe() {
 
   // If the player dies, do the following. 
   if (!alive && gameState == PLAYING) {
-   
+
     background(0);  
     theScore.setup();
     theScore.draw();
@@ -142,7 +140,6 @@ void reset() {
   theChr.init(); 
   theNmy.init();
   theNmy2.init();
-  powerUp.init();
   star.init();
   powerSpeed.init();
   theNmy.draw();

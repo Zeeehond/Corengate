@@ -51,7 +51,7 @@ class Enemy {
       theChr.y = 800;
     }
     // Collision enemy with player
-    if(overlapsPlayer((int)enemyX, (int)enemyY) && !star.STAR)
+    if (overlapsPlayer((int)enemyX, (int)enemyY) && !star.STAR)
     {
       alive = false;
       //reset();

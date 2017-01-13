@@ -5,15 +5,15 @@ class StartScreen {
   PImage startScreenImage;
 
   // Initialize the image
-  void init(){
+  void init() {
     startScreenImage = loadImage("nyan_start.png");
   }
-  
-  
+
+
   void update() {
     // react on keypresses and celect level
-   
-//
+
+    //
   }
   // update and draw startscreen
   void updateAndDraw() {

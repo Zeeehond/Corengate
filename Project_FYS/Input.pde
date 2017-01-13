@@ -24,7 +24,6 @@ void keyPressed() {
   }
   if (keyCode == LEFT) {
     if (alive == true) {
-      println("ooo hell noo");
       theChr.x = theChr.x-150;
       theChr.lane = theChr.lane - 1;
     }

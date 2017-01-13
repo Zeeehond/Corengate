@@ -6,5 +6,8 @@ class Timer {
         if(t == 0){
           println("INVINCIBLE!!!!!!");
         interval+=20;}
-    }
+
+}
+    
+    
 }

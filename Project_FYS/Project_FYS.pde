@@ -1,8 +1,8 @@
 //Importing the sound library and the songs from the map 'data'.
 import processing.sound.*;
-SoundFile backgroundMusic;
-SoundFile starSound;
-SoundFile speedSound;
+SoundFile file;
+SoundFile fileStar;
+SoundFile fileSpeed;
 
 //Declaring the variables.
 float y =1;
@@ -11,15 +11,23 @@ PImage d;
 int bx = 390;
 int by = 400;
 int  stage = 0;
-boolean alive = true;
+boolean alive;
 int scorecount = 0;
 int score;
 int topScore;
 String time = "001";
 int t;
 int interval = 1;
+PFont Font1;
+
+final int START_SCREEN = 0;
+final int PLAYING = 1;
+final int INSTRUCTION = 2;
+//A globally acesible variable called gameState
+int gameState;
 
 
+// These are the constructors, this makes it easier to call something from a class.
 Lanes theLns = new Lanes ();
 Char theChr = new Char();
 Enemy theNmy = new Enemy();
@@ -30,82 +38,80 @@ PowerDown PowerDown = new PowerDown();
 Highscore theScore = new Highscore();
 Star star = new Star();
 Timer Timer = new Timer();
+StartScreen startScreen = new StartScreen();
+InstructionScreen instructionScreen = new InstructionScreen();
+
+
 
 void setup() {
-  /* The background image must be the same size as the parameters
-   into the size() method. In this program, the size of the image
-   is 1024 x 720 pixels. */
   size(1024, 720);
   d = loadImage("bg.png");
+  // The background image must be the same size as the parameters
+  // into the size() method. In this program, the size of the image
+  // is 1024 x 720 pixels.
+  startScreen.init();
+  instructionScreen.init();
   theChr.init(); 
   theNmy.init();
   theNmy2.init();
   //powerUp.init();
   powerSpeed.init();
+  PowerDown.init();
   star.init();
+  Font1 = createFont("Arial Bold", 18);
   smooth();
   rectMode(CENTER);
   noStroke();
 
-  // If 'esc' is pressed, the game exits.
+  // If 'esc' is pressed, exit the game.
   if (key == CODED) {
     if (keyCode == ESC) {
       //Exit
     }
   }
+
+
+
   //Retrieving the songs including the backgroundmusic from the map 'data'.
-  starSound = new SoundFile(this, "star.wav");
-  speedSound = new SoundFile(this, "speed.wav"); 
-  backgroundMusic = new SoundFile(this, "bgmusic.mp3"); 
+  fileStar = new SoundFile(this, "star.wav");
+  fileSpeed = new SoundFile(this, "speed.wav"); 
+  file = new SoundFile(this, "bgmusic.mp3"); 
 
   //since the backgroundmusic is name 'file' were starting the song, we make ik stop and in the end loop this proces.  
-  backgroundMusic.play();
-  backgroundMusic.stop();
-  backgroundMusic.loop();
+ 
+  file.play();
+  file.stop();
+  file.loop();
+ 
 }
 
-
-
-// The function keypressed which will work if a certain key is pressed.
-void keyPressed() {
-  //The character momevent, make's the character moves left to right.
-  theChr.keyPressed();
-
-  //If the 'z' key is pressed and player is not alive, the game will restart.
-  if (key == 'z') {
-    if (!alive) {
-      reset();
-
-      loop();
-    }
-  }
-}
 //Retreiving all the updates 
 void updateMe() {
+
   theLns.update();
   theChr.update();
   theNmy.update();
   theNmy2.update();
- //powerUp.update();
+  //powerUp.update();
   PowerDown.update();
   powerSpeed.update();
   theScore.update();
   star.update();
   Timer.update();
 
-  //The score is based on the frames, you gain 1 point every frame. We divide the score to make it look better.
+  //Since the update is updated every frame, each frame we add 1 to our score. The score is divided by 10 to make to score smooth. 
   scorecount++;
   score = scorecount/10;
 }
 
 //Retreiving all the draw's. This is done once per game, and not every frame.
 void drawMe() {
+
   theLns.draw();
   powerSpeed.draw();
   theNmy.draw();
   theNmy2.draw();
   //powerUp.draw();
-  powerSpeed.draw();
   PowerDown.draw();
   star.draw();
   theChr.draw();
@@ -113,9 +119,9 @@ void drawMe() {
   textSize(20);
 
 
-  // If the player dies, we show the scoreboard and stop the game until the player resets it with the Z button.
-  if (alive == false) {
-
+  // If the player dies, do the following. 
+  if (!alive && gameState == PLAYING) {
+   
     background(0);  
     theScore.setup();
     theScore.draw();
@@ -125,9 +131,9 @@ void drawMe() {
   }
 }
 
+
 // If the game resets, do the following steps. 
 void reset() { 
-  alive = true;
   score = 0;
   scorecount = 0;
   theNmy.enemySpeed = 1;
@@ -141,7 +147,7 @@ void reset() {
   powerSpeed.init();
   theNmy.draw();
   theNmy2.draw();
-  //powerUp.draw();
+  // powerUp.draw();
   powerSpeed.draw();
   star.draw();
 }
@@ -149,9 +155,26 @@ void reset() {
 
 
 
-//Hier afblijven, k bye
+//------------------------------------- DO NOT CROSS THIS LINE --------------------------------------------
 
 void draw() {
-  updateMe();
-  drawMe();
+
+  switch (gameState) {
+  case START_SCREEN:
+    alive = false;
+    startScreen.updateAndDraw();
+    break;
+  case PLAYING:
+    alive = true;
+    updateMe();
+    drawMe();
+    break;
+
+  case INSTRUCTION:
+    alive = false;
+    instructionScreen.updateAndDraw();
+  }
+
+  //update key states
+  updateKeys();
 }

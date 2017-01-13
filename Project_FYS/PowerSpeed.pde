@@ -13,7 +13,9 @@ class PowerSpeed {
   PImage conv0, conv1, conv2, conv3, conv4; //Images for the speedup
   int convLength;
   int convWidth;
-
+  int speedCounter;
+  boolean powerSpeed;
+ 
 
   void init () {
     //Loading the images
@@ -30,6 +32,7 @@ class PowerSpeed {
     //radius = diameter /2;
     //clrPowerSpeed = color (50, 150, 50 );
     PowerSpeedY = -100;
+    speedCounter = 0;
   }
 
   void respawn() {
@@ -58,7 +61,8 @@ class PowerSpeed {
     if (overlapsPlayer((int)PowerSpeedX, (int)PowerSpeedY))
     {
       // Collision
-      speedSound.play();
+      powerSpeed = true;
+      fileSpeed.play();
       scorecount += 500;
       theNmy.enemySpeed += 1;
       theNmy2.enemySpeed2 += 1;
@@ -87,6 +91,22 @@ class PowerSpeed {
 
     //fill(clrPowerSpeed);
     //ellipse(PowerSpeedX, PowerSpeedY, radius, radius);
+    if (powerSpeed == true) {
+    speedCounter ++;
+    textFont(Font1);
+    textSize(32);
+    fill(250,50,20);
+    text("50 points EXTRA!", 150, 100);
+    text("50 points EXTRA for you!", 350, 300);
+    text("50 points good job!", 550, 500);
+    text("Keep them coming!!", 750, 700);
+    
+    }
+    
+    if (speedCounter == 100) {
+      powerSpeed = false;
+      speedCounter = 0;
+    }
   }
 
   void move() {

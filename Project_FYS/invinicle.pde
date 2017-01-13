@@ -14,8 +14,7 @@ class Star {
   PImage inv;
   int invLength;
   int invWidth;
-
-  boolean STAR = false;
+boolean STAR = false;
 
   void init () {
     STARCounter = 0;
@@ -31,18 +30,18 @@ class Star {
 
   void respawn() {
     if (t == 0) {
-      starY = starLane;
-      starLane = int(random(3));
+    starY = starLane;
+    starLane = int(random(3));
 
-      if (starLane == 0) {
-        starX = 362;
-      }
-      if (starLane == 1) {
-        starX = 512;
-      }
-      if (starLane == 2) {
-        starX = 662;
-      }
+    if (starLane == 0) {
+      starX = 362;
+    }
+    if (starLane == 1) {
+      starX = 512;
+    }
+    if (starLane == 2) {
+      starX = 662;
+     }
     }
   }
 
@@ -50,40 +49,69 @@ class Star {
   void update() {
     move();
 
-    if (overlapsPlayer((int)starX, (int)starY))
-    {
+   if(overlapsPlayer((int)starX,(int)starY))
+   {
       // Collision
-      starSound.play();
+      fileStar.play();
       STAR = true;
-      speed += 1;
-      theNmy.enemySpeed += 0.5;
-      theNmy2.enemySpeed2 += 0.5;
-      // println("yas");
-      respawn();
-    }
-    if (STAR == true) {
-      starX = 1500; 
-      STARCounter++;
-
-      tintClr = int(random(2));
-
-      if (tintClr == 0) 
-      {
-        tint(255, 255, 0);
+     respawn();
+     
+     
+   }
+   if (STAR == true) {
+            starX = 1500; 
+           STARCounter++;
+      if (STARCounter == 1) {
+        tint(255,255,0);
       }
-      if (tintClr == 1)
-      {
-        tint(255, 100, 0);
+      if (STARCounter == 21) {
+        tint(255,100,0); 
       }
-    }
-    if (STARCounter == 300) {
-      STAR = false;
-      STARCounter = 0;
-      noTint();
-    }
+        if (STARCounter == 42) {
+        tint(255,255,0);
+      }
+      if (STARCounter == 63) {
+        tint(255,100,0); 
+      }
+         if (STARCounter == 84) {
+        tint(255,255,0);
+      }
+      if (STARCounter == 105) {
+        tint(255,100,0); 
+      }  if (STARCounter == 126) {
+        tint(255,255,0);
+      }
+      if (STARCounter == 147) {
+        tint(255,100,0); 
+      }
+        if (STARCounter == 168) {
+        tint(255,255,0);
+      }
+      if (STARCounter == 189) {
+        tint(255,100,0); 
+      }
+        if (STARCounter == 210) {
+        tint(255,255,0);
+      }
+      if (STARCounter == 231) {
+        tint(255,100,0); 
+      }  if (STARCounter == 252) {
+        tint(255,255,0);
+      }
+      if (STARCounter == 273) {
+        tint(255,100,0); 
+      }
+               
+   }
+      if (STARCounter == 300) {
+        STAR = false;
+        STARCounter = 0;
+        noTint();
+    
+      }
 
     if (starY > height) {
-      respawn();
+    respawn();
     }
   }
 
@@ -91,7 +119,8 @@ class Star {
   void draw() {
     //Tekent de sprite voor invincibility
     image(inv, starX - invWidth/2, starY - invLength/2);
-  }
+      
+}
 
 
   void move() {

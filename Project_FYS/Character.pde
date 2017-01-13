@@ -31,21 +31,6 @@ class Char {
   }
 
 
-  void keyPressed() {
-    //Controls van de Character
-    if (key== CODED) {
-      if (keyCode == RIGHT) {
-        x = x+150;
-        lane = lane + 1;
-      }
-    }
-    if (key == CODED) {
-      if (keyCode == LEFT) {
-        x = x-150;
-        lane = lane - 1;
-      }
-    }
-  }
 
   void update() {
     //Zorgt ervoor dat de speler niet van de lanes af kan gaan.

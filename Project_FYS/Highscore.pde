@@ -18,6 +18,7 @@ class Highscore {
     text("Highest Score: ", 220, 60);
     text(topScore, 220, 120);
     text("press Z to restart", 720, 700);
+    
   }
   void update() {
     if (scorecount/10 >= topScore) {
